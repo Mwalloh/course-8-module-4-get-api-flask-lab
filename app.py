@@ -3,13 +3,6 @@ from data import products
 
 app = Flask(__name__)
 
-# Mock data
-products = [
-    {"id": 1, "name": "Laptop", "price": 899.99, "category": "electronics"},
-    {"id": 2, "name": "Book", "price": 14.99, "category": "books"},
-    {"id": 3, "name": "Desk", "price": 199.99, "category": "furniture"},
-]
-
 # TODO: Implement homepage route that returns a welcome message
 
 @app.route("/")
