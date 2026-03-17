@@ -19,7 +19,7 @@ def get_products():
     category = request.args.get("category")
     
     for product in products:
-        if product['category'].lower() == category.lower():
+        if product['category'] == category:
             filtered_by_category = [product]
             return jsonify(filtered_by_category), 200
         
