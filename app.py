@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():  
     # TODO: Return a welcome message
-    return jsonify({"message": "Welcome to our RESTful API"}), 200
+    return jsonify({"message": "welcome"}), 200
 
 # TODO: Implement GET /products route that returns all products or filters by category
 
@@ -19,7 +19,7 @@ def get_products():
     category = request.args.get("category")
     
     for product in products:
-        if product['category'] == category:
+        if product['category'].lower() == category.lower():
             filtered_by_category = [product]
             return jsonify(filtered_by_category), 200
         
@@ -33,9 +33,9 @@ def get_product_by_id(id):
     # TODO: Return product by ID or 404
     for product in products:
         if product['id'] == id:
-            return jsonify(product, 200)
+            return jsonify(product), 200
         
-    return jsonify({"message": "The product with the id does not exist!"}, 404)
+    return jsonify("404 Not Found"), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
